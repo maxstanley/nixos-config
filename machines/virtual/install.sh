@@ -24,11 +24,12 @@ mkswap -L swap /dev/sda2
 swapon /dev/sda2
 mount /dev/disk/by-label/nixos /mnt
 nixos-generate-config --root /mnt
-nixos-install
 
 rm /mnt/etc/nixos/configuration.nix
 cd nixos-config
 # TODO: Remove this line once merged.
 git checkout intial
 ln -s $HOME/nixos-config/machines/virtual/virtual.nix /mnt/etc/nixos/configuration.nix
+
+nixos-install
 
