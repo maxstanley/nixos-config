@@ -2,7 +2,7 @@
   imports =
     [
       /etc/nixos/hardware-configuration.nix
-      ../../profiles/personal.nix
+      ../profiles/personal.nix
     ];
 
   # Use the GRUB 2 boot loader.
