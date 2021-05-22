@@ -26,7 +26,7 @@ mount /dev/disk/by-label/nixos /mnt
 nixos-generate-config --root /mnt
 nixos-install
 
-rm /etc/nixos/configuration.nix
+rm /mnt/etc/nixos/configuration.nix
 cd nixos-config
 # TODO: Remove this line once merged.
 git checkout intial
