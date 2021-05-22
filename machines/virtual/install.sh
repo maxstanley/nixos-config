@@ -32,8 +32,8 @@ git checkout intial
 rm /mnt/etc/nixos/configuration.nix
 ln -s $HOME/nixos-config/machines/virtual/virtual.nix /mnt/etc/nixos/configuration.nix
 
-sed -i 's/\/etc\/nixos/\/mnt\/etc\/nixos/g' /mnt/etc/nixos/configuration.nix
+sed -i 's/\/etc\/nixos/\/mnt\/etc\/nixos/g' $HOME/nixos-config/machines/virtual/virtual.nix
 
 nixos-install
 
-sed -i 's/\/mnt\/etc\/nixos/\/etc\/nixos/g' /mnt/etc/nixos/configuration.nix
+sed -i 's/\/mnt\/etc\/nixos/\/etc\/nixos/g' $HOME/nixos-config/machines/virtual/virtual.nix
