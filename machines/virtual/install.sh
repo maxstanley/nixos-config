@@ -25,11 +25,15 @@ swapon /dev/sda2
 mount /dev/disk/by-label/nixos /mnt
 nixos-generate-config --root /mnt
 
-rm /mnt/etc/nixos/configuration.nix
 cd nixos-config
 # TODO: Remove this line once merged.
 git checkout intial
+
+rm /mnt/etc/nixos/configuration.nix
 ln -s $HOME/nixos-config/machines/virtual/virtual.nix /mnt/etc/nixos/configuration.nix
+
+sed -i 's/\/etc\/nixos/\/mnt\/etc\/nixos/g' /mnt/etc/nixos/configuration.nix
 
 nixos-install
 
+sed -i 's/\/mnt\/etc\/nixos/\/etc\/nixos/g' /mnt/etc/nixos/configuration.nix
