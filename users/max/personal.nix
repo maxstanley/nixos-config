@@ -4,14 +4,13 @@
   ];
 
   home-manager.users.max = { pkgs, ... }: {
-      programs = {
+    programs = {
 
-	git = {
-	  userName = "Max Stanley";
-	  userEmail = "git@maxstanley.uk";
-	};
-	    
-      };
-    };
-  };
+       git = {
+         userName = "Max Stanley";
+         userEmail = "git@maxstanley.uk";
+       };
+           
+     };
+   };
 }
