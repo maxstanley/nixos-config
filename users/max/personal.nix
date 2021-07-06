@@ -2,8 +2,8 @@
 let
   home-manager = builtins.fetchGit {
     url = "https://github.com/rycee/home-manager.git";
-    rev = "2aa20ae969f2597c4df10a094440a66e9d7f8c86";
-    ref = "release-20.09";
+    rev = "35a24648d155843a4d162de98c17b1afd5db51e4";
+    ref = "release-21.05";
   };
   pluginGit = ref: repo: pkgs.vimUtils.buildVimPlugin {
     name = "${lib.strings.sanitizeDerivationName repo}";
@@ -57,7 +57,7 @@ in {
           viAlias = true;
           vimAlias = true;
           withPython3 = true;
-		  withNodeJs = true;
+          withNodeJs = true;
 
           extraConfig = builtins.readFile ./neovim.vim;
 

@@ -92,28 +92,28 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    # Base Packages
-    wget
-    neovim
-    mpv
-    alacritty
-    dmenu
-    home-manager
-    git
-    
-    # Development Tools
-    vscodium
-    python38
-    nodejs-slim-14_x
-    go_1_15
-    clang_12
-    rustc
-    cargo
-    docker
+ #  environment.systemPackages = with pkgs; [
+ #    # Base Packages
+ #    wget
+ #    neovim
+ #    mpv
+ #    alacritty
+ #    dmenu
+ #    home-manager
+ #    git
+ #    
+ #    # Development Tools
+ #    vscodium
+ #    python38
+ #    nodejs-slim-14_x
+ #    go_1_15
+ #    clang_12
+ #    rustc
+ #    cargo
+ #    docker
 
 
-  ];
+ #  ];
 
   # programs.neovim.enable = true;
   # programs.firefox.enable = true;
@@ -159,7 +159,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "20.09"; # Did you read the comment?
+  system.stateVersion = "21.05"; # Did you read the comment?
 
 }
 

@@ -15,9 +15,9 @@ git clone https://github.com/maxstanley/nixos-config.git
 # Unique Steps.
 
 parted /dev/sda -- mklabel gpt
-parted /dev/sda -- mkpart ESP fat32 1MiB 512MiB
 parted /dev/sda -- mkpart primary 512MiB -16GiB
 parted /dev/sda -- mkpart primary linux-swap -16GiB 100%
+parted /dev/sda -- mkpart ESP fat32 1MiB 512MiB
 parted /dev/sda -- set 3 esp on
 
 # https://nixos.org/manual/nixos/stable/#sec-installation-summary
