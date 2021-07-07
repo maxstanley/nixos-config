@@ -9,6 +9,7 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
+    layout = "gb";
     displayManager.lightdm.enable = lib.mkDefault true;
     desktopManager.xterm.enable = false;
 

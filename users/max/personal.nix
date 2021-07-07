@@ -51,6 +51,10 @@ in {
           };
         };
 
+		mpv = {
+			enable = true;
+		};
+
         neovim = {
           enable = true;
 
@@ -169,6 +173,16 @@ in {
           enable = true;
           historyLimit = 10000;
           extraConfig = builtins.readFile ./tmux.conf;
+        };
+
+        vscode = {
+            enable = true;
+            package = pkgs.vscodium;
+
+            extensions = with pkgs.vscode-extensions; [
+                vscodevim.vim
+                xaver.clang-format
+            ];
         };
 
         zsh = {

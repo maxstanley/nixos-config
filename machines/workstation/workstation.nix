@@ -73,7 +73,7 @@
  #    docker
 
 
- #  ];
+  ];
 
   # programs.neovim.enable = true;
   # programs.firefox.enable = true;
