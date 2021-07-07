@@ -5,23 +5,13 @@
       ../../profiles/personal.nix
     ];
 
-  # Use the GRUB 2 boot loader.
-  # boot.loader.grub.enable = true;
-  # boot.loader.grub.version = 2;
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # Define on which hard drive you want to install Grub.
-  # boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
-
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
 
-  networking.hostName = "nixos-new"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "workstation";  # Define your hostname.
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -30,29 +20,28 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.ens18.useDHCP = true;
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking.interfaces.enp6s0.useDHCP = true;
+  networking.interfaces.enp7s0f0.useDHCP = true;
+  networking.interfaces.enp7s0f1.useDHCP = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  # };
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "gb";
+  };
 
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    
+    layout = "gb";
+
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
         dmenu
-	i3status
-	i3lock
+        i3status
+        i3lock
       ];
     };
   };

@@ -35,10 +35,10 @@ cd nixos-config
 git checkout intial
 
 rm /mnt/etc/nixos/configuration.nix
-ln -s /home/nixos/nixos-config/machines/virtual/virtual.nix /mnt/etc/nixos/configuration.nix
+ln -s /home/nixos/nixos-config/machines/workstation/workstation.nix /mnt/etc/nixos/configuration.nix
 
-sed -i 's/\/etc\/nixos/\/mnt\/etc\/nixos/g' ./machines/virtual/virtual.nix
+sed -i 's/\/etc\/nixos/\/mnt\/etc\/nixos/g' ./machines/workstation/workstation.nix
 
 nixos-install
 
-sed -i 's/\/mnt\/etc\/nixos/\/etc\/nixos/g' ./machines/virtual/virtual.nix
+sed -i 's/\/mnt\/etc\/nixos/\/etc\/nixos/g' ./machines/workstation/workstation.nix
