@@ -28,37 +28,8 @@
   i18n.defaultLocale = "en_GB.UTF-8";
   console = {
     font = "Lat2-Terminus16";
-    keyMap = "gb";
+    keyMap = "uk";
   };
-
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    layout = "gb";
-
-    windowManager.i3 = {
-      enable = true;
-      extraPackages = with pkgs; [
-        dmenu
-        i3status
-        i3lock
-      ];
-    };
-  };
-
-  services.xrdp = {
-    enable = true;
-    defaultWindowManager = "i3";
-  };
-
-  environment.sessionVariables.TERMINAL = [ "alacritty" ];
-
-  # Configure keymap in X11
-  services.xserver.layout = "gb";
-  # services.xserver.xkbOptions = "eurosign:e";
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
 
   # Enable sound.
   # sound.enable = true;
@@ -81,8 +52,8 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
- #  environment.systemPackages = with pkgs; [
- #    # Base Packages
+  environment.systemPackages = with pkgs; [
+    # Base Packages
  #    wget
  #    neovim
  #    mpv

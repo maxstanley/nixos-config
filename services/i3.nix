@@ -10,16 +10,22 @@
   services.xserver = {
     enable = true;
     displayManager.lightdm.enable = lib.mkDefault true;
-    
+    desktopManager.xterm.enable = false;
+
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
-        dmenu
-	i3status
-	i3lock
+        rofi
+        i3status
+        i3lock
       ];
     };
 
+  };
+
+  services.xrdp = {
+    enable = true;
+    defaultWindowManager = "i3";
   };
 
 }
