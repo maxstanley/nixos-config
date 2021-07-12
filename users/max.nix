@@ -357,8 +357,18 @@ in {
             package = pkgs.vscodium;
 
             extensions = with pkgs.vscode-extensions; [
-                vscodevim.vim
-                xaver.clang-format
+              # Editor
+              vscodevim.vim
+
+              # C/C++
+              xaver.clang-format
+              ms-vscode.cpptools
+
+              # Golang
+              golang.Go
+
+              # Python
+              ms-python.python
             ];
         };
 
