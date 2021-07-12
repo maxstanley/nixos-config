@@ -28,12 +28,187 @@ in {
 
   programs.zsh.enable = true;
 
+  environment.systemPackages = with pkgs; [
+    roboto-mono
+  ];
+
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
 
     users.max = { pkgs, ... }: {
       programs = {
+
+        alacritty = {
+          enable = true;
+          settings = {
+            env.TERM = "xterm-256color";
+
+		    window = {
+              decorations = "full";
+              startup_mode = "Windowed";
+              title = "Terminal";
+              class = {
+                instance = "Alacritty";
+                general = "Alacritty";
+              };
+            };
+
+            scrolling.history = 50000;
+
+            font = {
+              size = 11;
+
+              normal = {
+                family = "Roboto Mono";
+                style = "Regular";
+              };
+
+              bold = {
+                family = "Roboto Mono";
+                style = "Bold";
+              };
+
+              italic = {
+                family = "Roboto Mono";
+                style = "Italic";
+              };
+
+              bold_italic = {
+                family = "Roboto Mono";
+                style = "Bold Italic";
+              };
+
+            };
+
+            cursor.style = "Block";
+
+            live_config_reload = true;
+
+            working_directory = "None";
+
+            key_bindings = [
+
+              {
+                key = "Copy";
+                action = "Copy";
+              }
+
+              {
+                key = "C";
+                mods = "Control";
+                action = "Copy";
+              }
+
+              {
+                key = "Paste";
+                action = "Paste";
+              }
+
+              {
+                key = "V";
+                mods = "Control";
+                action = "Paste";
+              }
+
+              {
+                key = "Equals";
+                mods = "Control";
+                action = "IncreaseFontSize";
+              }
+
+              {
+                key = "Minus";
+                mods = "Control";
+                action = "DecreaseFontSize";
+              }
+
+              {
+                key = "L";
+                mods = "Control";
+                action = "ClearLogNotice";
+              }
+
+             # {
+             #   key = "L";
+             #   mods = "Control";
+             #   action = "\\x0c";
+             # }
+
+            ];
+
+			colors = {
+
+				primary = {
+					background = "0x2d2d2d";
+					foreground = "0xd3d0c8";
+				};
+
+				cursor = {
+					text = "0x2d2d2d";
+					cursor = "0xd3d0c8";
+				};
+
+				normal = {
+					black = "0x2d2d2d";
+					red = "0xf2777a";
+					green = "0x99cc99";
+					yellow = "0xffcc66";
+					blue = "0x6699cc";
+					magenta = "0xcc99cc";
+					cyan = "0x66cccc";
+					white = "0xd3d0c8";
+				};
+
+				bright = {
+					black = "0x747369";
+					red = "0xf2777a";
+					green = "0x99cc99";
+					yellow = "0xffcc66";
+					blue = "0x6699cc";
+					magenta = "0xcc99cc";
+					cyan = "0x66cccc";
+					white = "0xf2f0ec";
+				};
+
+				indexed_colors = [
+
+				  {
+                    index = 16;
+					color = "0xf99157";
+                  }
+
+				  {
+                    index = 17;
+					color = "0xd27b53";
+                  }
+
+				  {
+                    index = 18;
+					color = "0x393939";
+                  }
+
+				  {
+                    index = 19;
+					color = "0x515151";
+                  }
+
+				  {
+                    index = 20;
+					color = "0xa09f93";
+                  }
+
+				  {
+                    index = 21;
+					color = "0xe8e6df";
+                  }
+
+				];
+
+			};
+
+          };
+        };
 
         firefox = {
           enable = true;

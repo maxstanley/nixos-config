@@ -1,9 +1,5 @@
 { config, pkgs, lib, ... }: {
 
-  imports = [
-    ./alacritty.nix
-  ];
-
   boot.plymouth.enable = true;
 
   # Enable the X11 windowing system.
