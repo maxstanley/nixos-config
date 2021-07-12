@@ -26,6 +26,8 @@ in {
     ];
   };
 
+  programs.zsh.enable = true;
+
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
@@ -195,7 +197,6 @@ in {
           history = {
               size = 1000;
               save = 1000;
-              path = "~/.zsh_history";
               share = true;
               extended = false;
           };
