@@ -4,6 +4,8 @@
     ../services/ssh.nix
     ../services/ntp.nix
     ../services/localisation.nix
+
+    ../users/max.nix
   ];
   
   environment.systemPackages = with pkgs; [

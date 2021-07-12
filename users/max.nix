@@ -195,7 +195,7 @@ in {
           history = {
               size = 1000;
               save = 1000;
-              path = "$HOME/.zsh_history";
+              path = "~/.zsh_history";
               share = true;
               extended = false;
           };
