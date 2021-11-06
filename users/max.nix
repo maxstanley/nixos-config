@@ -356,20 +356,20 @@ in {
             enable = true;
             package = pkgs.vscodium;
 
-            extensions = with pkgs.vscode-extensions; [
-              # Editor
-              vscodevim.vim
+        #    extensions = with pkgs.vscode-extensions; [
+        #      # Editor
+        #      vscodevim.vim
 
-              # C/C++
-              xaver.clang-format
-              ms-vscode.cpptools
+        #      # C/C++
+        #      xaver.clang-format
+        #      ms-vscode.cpptools
 
-              # Golang
-              golang.Go
+        #      # Golang
+        #      golang.Go
 
-              # Python
-              ms-python.python
-            ];
+        #      # Python
+        #      ms-python.python
+        #    ];
         };
 
         zsh = {
