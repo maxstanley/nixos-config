@@ -2,7 +2,7 @@
   imports =
     [
       /etc/nixos/hardware-configuration.nix
-      ./profiles/personal.nix
+      /etc/nixos-config/profiles/personal.nix
     ];
 
   time.timeZone = "Europe/London";

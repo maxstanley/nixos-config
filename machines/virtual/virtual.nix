@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
   imports =
     [
-      ../../configuration.nix
+      /etc/nixos-config/configuration.nix
     ];
 
   # Use the GRUB 2 boot loader.
