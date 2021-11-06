@@ -34,8 +34,8 @@ nixos_install() {
 	sed -i 's/\/mnt\/etc\/nixos/\/etc\/nixos/g' ./configuration.nix
 }
 
-set_root_password() {
-	echo -e "$1\n$1" | passwd --root /mnt
+set_user_password() {
+	echo -e "$2\n$2" | passwd --root /mnt $1
 }
 
 generate_configuration() {
@@ -54,5 +54,5 @@ source ./machine.sh
 get_configuration $NIXOS_REPO
 generate_configuration $NIXOS_MACHINE
 nixos_install
-set_root_password $NIXOS_ROOT_PASSWORD
+set_user_password root $NIXOS_ROOT_PASSWORD
 
