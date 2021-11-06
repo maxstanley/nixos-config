@@ -20,9 +20,6 @@ get_configuration() {
 	
 	# Clone nixos-config repo.
 	git clone $1 $nixos_config_dir_mnt/
-	
-	cd $nixos_config_dir_mnt
-	git checkout update
 }
 
 nixos_install() {

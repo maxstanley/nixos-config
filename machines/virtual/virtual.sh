@@ -1,6 +1,5 @@
 #/bin/sh
 
-# Unique Steps.
 parted --script /dev/sda -- \
     mklabel msdos \
     mkpart primary 1MiB -8GiB \
