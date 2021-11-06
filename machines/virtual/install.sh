@@ -36,6 +36,8 @@ ln -s ../nixos-config/machines/virtual/virtual.nix configuration.nix
 cd /mnt/etc/nixos-config/
 sed -i 's/\/etc\/nixos/\/mnt\/etc\/nixos/g' ./configuration.nix
 
-nixos-install
+nixos-install --no-root-passwd
 
 sed -i 's/\/mnt\/etc\/nixos/\/etc\/nixos/g' ./configuration.nix
+
+echo -e "$ROOT_PASSWORD\n$ROOT_PASSWORD" | passwd --root /mnt
