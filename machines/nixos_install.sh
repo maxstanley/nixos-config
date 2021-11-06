@@ -49,7 +49,7 @@ generate_configuration() {
 check_run_as_root
 
 # Machine dependent steps.
-source machine.sh
+source ./machine.sh
 
 get_configuration $NIXOS_REPO
 generate_configuration $NIXOS_MACHINE
