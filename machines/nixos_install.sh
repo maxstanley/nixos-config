@@ -6,15 +6,6 @@ nixos_config_dir_mnt="/mnt/etc/nixos-config"
 nixos_dir="/etc/nixos"
 nixos_dir_mnt="/mnt/etc/nixos"
 
-check_run_as_root
-get_configuration $NIXOS_REPO $NIXOS_MACHINE
-
-# Machine dependent steps.
-source $nixos_config_dir_mnt/machines/$NIXOS_MACHINE/$NIXOS_MACHINE.sh
-
-nixos_install
-set_root_password $NIXOS_ROOT_PASSWORD
-
 check_run_as_root() {
 	# Check we are running as root.
 	if [ "$EUID" -ne 0 ]; then
@@ -50,3 +41,13 @@ nixos_install() {
 set_root_password() {
 	echo -e "$1\n$1" | passwd --root /mnt
 }
+
+check_run_as_root
+get_configuration $NIXOS_REPO $NIXOS_MACHINE
+
+# Machine dependent steps.
+source $nixos_config_dir_mnt/machines/$NIXOS_MACHINE/$NIXOS_MACHINE.sh
+
+nixos_install
+set_root_password $NIXOS_ROOT_PASSWORD
+
