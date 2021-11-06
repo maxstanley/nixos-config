@@ -1,9 +1,10 @@
 #/bin/sh
 
 # Unique Steps.
-parted /dev/sda -- mklabel msdos
-parted /dev/sda -- mkpart primary 1MiB -8GiB
-parted /dev/sda -- mkpart primary linux-swap -8GiB 100%
+parted --script /dev/sda -- \
+    mklabel msdos \
+    mkpart primary 1MiB -8GiB \
+    mkpart primary linux-swap -8GiB 100%
 
 # https://nixos.org/manual/nixos/stable/#sec-installation-summary
 mkfs.ext4 -L nixos /dev/sda1
