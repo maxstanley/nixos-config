@@ -30,8 +30,10 @@ cd /mnt/etc/nixos-config
 git checkout update
 
 rm /mnt/etc/nixos/configuration.nix
-chroot ln -s /etc/nixos-config/machines/virtual/virtual.nix /etc/nixos/configuration.nix
+cd /mnt/etc/nixos/
+ln -s ../nixos-config/machines/virtual/virtual.nix configuration.nix
 
+cd /mnt/etc/nixos-config/
 sed -i 's/\/etc\/nixos/\/mnt\/etc\/nixos/g' ./configuration.nix
 
 nixos-install
