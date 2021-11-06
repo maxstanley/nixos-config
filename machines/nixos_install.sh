@@ -39,7 +39,7 @@ set_root_password() {
 }
 
 generate_configuration() {
-    nixos-generate-config --root /mnt
+	nixos-generate-config --root /mnt
 
 	rm $nixos_dir_mnt/configuration.nix
 	cd $nixos_dir_mnt
@@ -47,12 +47,12 @@ generate_configuration() {
 }
 
 check_run_as_root
-get_configuration $NIXOS_REPO $NIXOS_MACHINE
 
 # Machine dependent steps.
-source $nixos_config_dir_mnt/machines/$NIXOS_MACHINE/$NIXOS_MACHINE.sh
+source machine.sh
 
-generate_configuration
+get_configuration $NIXOS_REPO
+generate_configuration $NIXOS_MACHINE
 nixos_install
 set_root_password $NIXOS_ROOT_PASSWORD
 
