@@ -23,10 +23,6 @@ get_configuration() {
 	
 	cd $nixos_config_dir_mnt
 	git checkout update
-	
-	rm $nixos_dir_mnt/configuration.nix
-	cd $nixos_dir_mnt
-	ln -s ../nixos-config/machines/$2/$2.nix configuration.nix
 }
 
 nixos_install() {
@@ -42,12 +38,21 @@ set_root_password() {
 	echo -e "$1\n$1" | passwd --root /mnt
 }
 
+generate_configuration() {
+    nixos-generate-config --root /mnt
+
+	rm $nixos_dir_mnt/configuration.nix
+	cd $nixos_dir_mnt
+	ln -s ../nixos-config/machines/$2/$2.nix configuration.nix
+}
+
 check_run_as_root
 get_configuration $NIXOS_REPO $NIXOS_MACHINE
 
 # Machine dependent steps.
 source $nixos_config_dir_mnt/machines/$NIXOS_MACHINE/$NIXOS_MACHINE.sh
 
+generate_configuration
 nixos_install
 set_root_password $NIXOS_ROOT_PASSWORD
 
