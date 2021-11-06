@@ -43,7 +43,7 @@ generate_configuration() {
 
 	rm $nixos_dir_mnt/configuration.nix
 	cd $nixos_dir_mnt
-	ln -s ../nixos-config/machines/$2/$2.nix configuration.nix
+	ln -s ../nixos-config/machines/$1/$1.nix configuration.nix
 }
 
 check_run_as_root
